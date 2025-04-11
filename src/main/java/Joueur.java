@@ -13,6 +13,7 @@ public class Joueur {
      * Achète une amélioration.
      */
     public static void buyupgrade() {
+        k.removeKrono();
     }
 
     /**
