@@ -4,9 +4,9 @@ public class Main {
         Krono k = new Krono();
         NotificateurKrono notificateur = new NotificateurKrono(1000);
         k.setActionListener(notificateur);
-
-        k.addKrono(10);
         System.out.println(k.getKrono());
+
+        k.addKrono(10000);
         k.removeKrono(3);
         System.out.println(k.getKrono());
 
