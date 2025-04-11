@@ -1,5 +1,6 @@
 public class Krono {
     private int quantity;
+    private ActionListener actionListener;
 
     /**
      * Increases the quantity of Krono by the given amount
@@ -31,6 +32,10 @@ public class Krono {
 
     public int getKrono() {
         return this.quantity;
+    }
+
+    public void setActionListener(ActionListener listener) {
+        this.actionListener = listener;
     }
 }
 
