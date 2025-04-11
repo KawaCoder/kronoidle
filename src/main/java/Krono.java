@@ -8,6 +8,9 @@ public class Krono {
      */
     public void addKrono(int quantity) {
         this.quantity += quantity;
+        if (actionListener != null) {
+            actionListener.onKronoChanged(this.quantity);
+        }
     }   
 
 
