@@ -1,1 +1,43 @@
 caca
+
+SPECS
+
+Joueur:
+    Attributs :
+        tempsAccumule : Un compteur qui représente le temps accumulé par le joueur (en termes d'unité Krono).
+
+        ressources : Une map qui stocke les différentes ressources (ex: pierres, bois, nourriture, etc.).
+
+        ameliorations : Une liste ou une map des améliorations acquises par le joueur.
+
+        niveau : Le niveau actuel du joueur (en fonction de son avancée à travers les âges).
+
+    Méthodes :
+
+        accumulerTemps(Krono k) : Ajoute une unité de temps au compteur du joueur.
+
+        acheterAmelioration(Amelioration a) : Permet au joueur d'acheter une amélioration.
+
+        gagnerRessources() : Gère la génération de ressources en fonction du temps écoulé et des améliorations.
+
+        afficherStatistiques() : Affiche les statistiques actuelles du joueur (temps, ressources, niveau, etc.).
+
+
+Amélioration:
+
+    Attributs :
+
+        nom : Le nom de l'amélioration (ex : "Feu", "Elevage", etc.).
+
+        cout : Le coût de l'amélioration (en unités de temps, ou en ressources).
+
+        effet : L'effet que l'amélioration aura sur le jeu (ex : "double la production de nourriture").
+
+        disponible : Un booléen indiquant si l'amélioration est disponible ou non (en fonction du temps ou des conditions de jeu).
+
+    Méthodes :
+
+        activer(): Applique l'effet de l'amélioration.
+
+        verifierDisponibilite(): Vérifie si l'amélioration peut être achetée (par exemple, vérifier si le joueur a accumulé suffisamment de ressources ou de temps).
+
