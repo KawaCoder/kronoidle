@@ -1,5 +1,4 @@
 
-
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
@@ -7,7 +6,7 @@ import com.almasb.fxgl.dsl.FXGL;
 import javafx.scene.text.Text;
 
 
-public class GameApp extends GameApplication{
+public class GameApp extends GameApplication {
 
     private Krono krono = new Krono();
     private Text kronoTexte;
