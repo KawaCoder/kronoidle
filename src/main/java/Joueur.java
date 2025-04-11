@@ -1,22 +1,36 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+/**
+ * Représente un joueur.
+ * 
+ * @author clickaddict
+ */
 public class Joueur {
 
-    // Constructeur
-    private void MyObject() {
-        // Attribut Map : clé = nom (String), valeur = valeur associée (Integer)
-        Map<String, Integer> ressources = new HashMap<>();
-    }
-
     private int level;
+    private Krono k = new Krono();
+    private Ressources r = new Ressources();
 
-    private List<String> upgrade;
-
+    /**
+     * Achète une amélioration.
+     */
     public static void buyupgrade() {
-
     }
 
+    /**
+     * Affiche les statistiques actuelles du joueur.
+     * 
+     * @param level le niveau actuel du joueur.
+     */
+    public void showstats(int level) {
+        System.out.println("Level : " + this.level);
+        System.out.println("Ressources : " + r.getressourcesquantity());
+        System.out.println("Krono : " + k.getKrono());
+    }
+
+    /**
+     * Retourne le niveau actuel du joueur.
+     * 
+     * @return le niveau actuel du joueur.
+     */
+    public int getlevel() { return this.level; }
 
 }

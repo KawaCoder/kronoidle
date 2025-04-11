@@ -10,7 +10,6 @@ Joueur:
 
         ameliorations : Une liste ou une map des améliorations acquises par le joueur.
 
-        niveau : Le niveau actuel du joueur (en fonction de son avancée à travers les âges).
 
     Méthodes :
 
@@ -19,8 +18,6 @@ Joueur:
         acheterAmelioration(Amelioration a) : Permet au joueur d'acheter une amélioration.
 
         gagnerRessources() : Gère la génération de ressources en fonction du temps écoulé et des améliorations.
-
-        afficherStatistiques() : Affiche les statistiques actuelles du joueur (temps, ressources, niveau, etc.).
 
 
 Amélioration:
