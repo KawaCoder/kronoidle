@@ -1,5 +1,5 @@
 /**
- * Représente une amélioration du jeu.
+ * Represents a game upgrade.
  * 
  * @author clickaddict
  */
@@ -11,16 +11,16 @@ public class Upgrades {
     Krono k;
     
     /**
-     * Constructeur de la classe Upgrades.
+     * Constructor for the Upgrades class.
      * 
-     * @param k le compteur de Krono.
+     * @param k the Krono counter.
      */
     public Upgrades(Krono k) {
         this.k = k;
     }
 
     /**
-     * Active l'amélioration si le joueur a suffisamment de Krono.
+     * Activates the upgrade if the player has enough Krono.
      */
     public void activer() {
         if (disposable) {
@@ -29,7 +29,7 @@ public class Upgrades {
     }
 
     /**
-     * Vérifie si l'amélioration est disponible en fonction du nombre de Krono du joueur.
+     * Checks if the upgrade is available based on the player's Krono count.
      */
     public void getdisponible() {
         if (k.getKrono() >= cost) {

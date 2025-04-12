@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Krono k = new Krono();
-        NotificateurKrono notificateur = new NotificateurKrono(1000);
-        k.setActionListener(notificateur);
+        notifierKrono not = new notifierKrono(1000);
+        k.setActionListener(not);
         System.out.println(k.getKrono());
 
         k.addKrono(10000);

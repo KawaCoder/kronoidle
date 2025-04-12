@@ -2,7 +2,7 @@ caca
 
 SPECS
 
-Joueur:
+Player:
     Attributs :
         tempsAccumule : Un compteur qui représente le temps accumulé par le joueur (en termes d'unité Krono).
 
