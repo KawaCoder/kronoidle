@@ -1,5 +1,6 @@
-public class Krono {
+public class KronoCounter {
     private int quantity;
+    private int mult;
     private ActionListener actionListener;
 
     /**
@@ -36,6 +37,16 @@ public class Krono {
     public int getKrono() {
         return this.quantity;
     }
+
+    public void setMult(int mult) {
+        this.mult = mult;
+    }
+
+    public void addToMult(int mult) {
+        this.mult += mult;
+    }
+
+    public
 
     public void setActionListener(ActionListener listener) {
         this.actionListener = listener;

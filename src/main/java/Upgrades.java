@@ -8,14 +8,14 @@ public class Upgrades {
     private int cost;
     private int effect;
     private boolean disposable;
-    Krono k;
+    KronoCounter k;
     
     /**
      * Constructor for the Upgrades class.
      * 
      * @param k the Krono counter.
      */
-    public Upgrades(Krono k) {
+    public Upgrades(KronoCounter k) {
         this.k = k;
     }
 

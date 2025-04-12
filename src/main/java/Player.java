@@ -9,7 +9,7 @@ import java.util.List;
 public class Player {
 
     private int level;
-    private Krono k = new Krono();
+    private KronoCounter k = new KronoCounter();
     private List<Item> purchasedItems = new ArrayList<>();
 
     /**
@@ -37,6 +37,15 @@ public class Player {
      * @return the current level of the player.
      */
     public int getlevel() { return this.level; }
+
+/**
+ * Returns the current quantity of Krono the player has.
+ *
+ * @return the user's KronoCounter.
+ */
+public KronoCounter getKrono() {
+    return k;
+}
 
     /**
      * Adds an item to the purchased items.

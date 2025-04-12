@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        Krono k = new Krono();
+        KronoCounter k = new KronoCounter();
         notifierKrono not = new notifierKrono(1000);
         k.setActionListener(not);
         System.out.println(k.getKrono());

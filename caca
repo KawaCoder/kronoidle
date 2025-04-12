@@ -4,7 +4,7 @@ SPECS
 
 Player:
     Attributs :
-        tempsAccumule : Un compteur qui représente le temps accumulé par le joueur (en termes d'unité Krono).
+        tempsAccumule : Un compteur qui représente le temps accumulé par le joueur (en termes d'unité KronoCounter).
 
         ressources : Une map qui stocke les différentes ressources (ex: pierres, bois, nourriture, etc.).
 
@@ -13,7 +13,7 @@ Player:
 
     Méthodes :
 
-        accumulerTemps(Krono k) : Ajoute une unité de temps au compteur du joueur.
+        accumulerTemps(KronoCounter k) : Ajoute une unité de temps au compteur du joueur.
 
         acheterAmelioration(Amelioration a) : Permet au joueur d'acheter une amélioration.
 
