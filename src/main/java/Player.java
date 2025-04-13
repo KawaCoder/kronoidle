@@ -38,15 +38,6 @@ public class Player {
      */
     public int getlevel() { return this.level; }
 
-/**
- * Returns the current quantity of Krono the player has.
- *
- * @return the user's KronoCounter.
- */
-public KronoCounter getKrono() {
-    return k;
-}
-
     /**
      * Adds an item to the purchased items.
      * 
