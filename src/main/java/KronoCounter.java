@@ -46,8 +46,6 @@ public class KronoCounter {
         this.mult += mult;
     }
 
-    public
-
     public void setActionListener(ActionListener listener) {
         this.actionListener = listener;
     }

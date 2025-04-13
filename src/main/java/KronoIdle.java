@@ -13,7 +13,7 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     SpriteBatch spriteBatch;
     StretchViewport viewport;
 
-    private Krono krono = new Krono();
+    private KronoCounter krono = new KronoCounter();
     private BitmapFont font;
     private String kronoText = "0 Kr";
 
