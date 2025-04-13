@@ -6,7 +6,7 @@ public class DesktopLauncher {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
         config.setTitle("Krono Idle");
         config.setWindowedMode(1200, 800);
-        config.setResizable(false);
+        config.setResizable(true);
         new Lwjgl3Application(new KronoIdle(), config);
     }
 }
