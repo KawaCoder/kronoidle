@@ -10,5 +10,12 @@ public class Main {
         k.removeKrono(3);
         System.out.println(k.getKrono());
 
+        Player p = new Player();
+        System.out.println(p.getlevel());
+        p.buyupgrade();
+        p.showstats();
+        System.out.println(p.getItems());
+
+
     }
 }
