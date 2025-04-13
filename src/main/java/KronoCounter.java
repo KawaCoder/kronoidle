@@ -49,5 +49,10 @@ public class KronoCounter {
     public void setActionListener(ActionListener listener) {
         this.actionListener = listener;
     }
+    
+    
+    public void addToMult(double mult) {
+        this.mult += mult;
+    }
 }
 

@@ -32,7 +32,9 @@ public class Item {
 
     // Apply the item's effect to the player
     public void applyMult(Player player) {
-        k.getKrono().addToMult(this.kronoMult);
+        k.getKrono();
         System.out.println("The effect of item " + name + " is applied. Bonus: " + kronoMult + " Krono per second.");
+        // A corriger starfoullah
     }
+
 }
