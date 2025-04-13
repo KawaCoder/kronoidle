@@ -3,7 +3,7 @@ public class Item {
     private String name;
     private String description; // Description of the item
     private int cost;           // Cost of the item in Krono
-
+    private KronoCounter k = new KronoCounter();
     private int kronoMult;
 
     public Item(String name, String description, int cost, int kronoMult) {
@@ -32,7 +32,7 @@ public class Item {
 
     // Apply the item's effect to the player
     public void applyMult(Player player) {
-        player.getKrono().addToMult(this.kronoMult);
+        k.getKrono().addToMult(this.kronoMult);
         System.out.println("The effect of item " + name + " is applied. Bonus: " + kronoMult + " Krono per second.");
     }
 }
