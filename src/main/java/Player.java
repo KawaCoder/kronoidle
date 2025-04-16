@@ -3,20 +3,20 @@
  *
  * @author clickaddict
  */
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Player {
 
     private int level;
     private KronoCounter k = new KronoCounter();
-    private List<Item> purchasedItems = new ArrayList<>();
+    private Map<Item, Integer> purchasedItems = new HashMap<>();
 
     /**
      * Buys an upgrade.
      */
     public void buyupgrade() {
-        //k.removeKrono();
         System.out.println("buy upgrade");
     }
 
@@ -42,17 +42,16 @@ public class Player {
      * @return the user's KronoCounter.
      */
     public KronoCounter getKrono() {
-        return k;
+        return this.k;
     }
 
-
     /**
-     * Returns the list of items purchased by the player.
+     * Returns the map of items purchased by the player.
      *
-     * @return the list of items purchased by the player.
+     * @return the map of items purchased by the player.
      */
-    public List<Item> getItems() {
-        return purchasedItems;
+    public Map<Item, Integer> getItems() {
+        return this.purchasedItems;
     }
 
     /**
@@ -61,6 +60,16 @@ public class Player {
      * @param item the item to add.
      */
     public void addItem(Item item) {
-        purchasedItems.add(item);
+        purchasedItems.put(item, purchasedItems.getOrDefault(item, 0) + 1);
+    }
+
+    /**
+     * Returns the quantity of a specific item purchased by the player.
+     *
+     * @param item the item to check.
+     * @return the quantity of the item purchased.
+     */
+    public int getItemQuantity(Item item) {
+        return purchasedItems.getOrDefault(item, 0);
     }
 }

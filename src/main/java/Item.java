@@ -4,9 +4,9 @@ public class Item {
     private String description; // Description of the item
     private int cost;           // Cost of the item in Krono
     private KronoCounter k = new KronoCounter();
-    private int kronoMult;
+    private double kronoMult;
 
-    public Item(String name, String description, int cost, int kronoMult) {
+    public Item(String name, String description, int cost, double kronoMult) {
         this.name = name;
         this.description = description;
         this.cost = cost;
@@ -35,6 +35,13 @@ public class Item {
         k.getKrono();
         System.out.println("The effect of item " + name + " is applied. Bonus: " + kronoMult + " Krono per second.");
         // A corriger starfoullah
+    }
+
+    /**
+     * Checks if the item is available based on the player's Krono count.
+     */
+    public boolean isAvailable(KronoCounter k) {
+        return(k.getKrono() >= this.cost);
     }
 
 }
