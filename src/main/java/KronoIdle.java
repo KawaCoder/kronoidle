@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-
+import java.util.List;
 
 public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     Texture backgroundPrehistoire;
@@ -28,7 +28,8 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     private GlyphLayout layout = new GlyphLayout();
     private Image clickImage;
     private Stage stage;
-
+    private List<Item> items;
+    private Player player;
 
     @Override
     public void create () {
@@ -40,6 +41,9 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         System.out.println("Image height: " + backgroundPrehistoire.getHeight());
 
         font = new BitmapFont(Gdx.files.internal("kronofont.fnt"));
+
+        items = ItemLoader.loadItems();
+        player = new Player();
 
         krono.setActionListener(new ActionListener() {
             @Override
@@ -68,10 +72,7 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         table.row().padTop(30);
         table.add(clickImage).size(size, size).center();
 
-
-
         stage.addActor(table);
-
     }
 
     @Override
@@ -103,14 +104,23 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
             viewport.getWorldWidth(),
             viewport.getWorldHeight()
         );
+        
+        // Draw Krono counter
         font.getData().setScale(0.5f); 
         layout.setText(font, kronoText);
         float textX = (viewport.getWorldWidth() - layout.width) / 2;
         float textY = viewport.getWorldHeight() - 100;
-
         font.draw(spriteBatch, layout, textX, textY);
 
-
+        // Draw items list
+        float itemY = viewport.getWorldHeight() - 200;
+        font.getData().setScale(0.4f);
+        for (Item item : items) {
+            String itemText = item.getName() + " - Cost: " + item.getCost() + " Kr (x" + player.getItemQuantity(item) + ")";
+            layout.setText(font, itemText);
+            font.draw(spriteBatch, layout, 50, itemY);
+            itemY -= 40;
+        }
 
         spriteBatch.end();
         

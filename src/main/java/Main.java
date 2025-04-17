@@ -48,8 +48,8 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Purchased items:");
-                    for (Map.Entry<Item, Integer> entry : p.getItems().entrySet()) {
-                        System.out.println(entry.getKey().getName() + " x" + entry.getValue());
+                    for (Item item : p.getItems().keySet()) {
+                        System.out.println(item.getName() + " x" + p.getItemQuantity(item));
                     }
                     break;
                 case 4:
