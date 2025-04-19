@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Cell;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -15,6 +16,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import java.util.List;
+
+
 
 public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     Texture backgroundPrehistoire;
@@ -30,6 +33,7 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     private Stage stage;
     private List<Item> items;
     private Player player;
+    private Cell<Image> clickImageCell;
 
     @Override
     public void create () {
@@ -46,6 +50,11 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         player = new Player();
 
         krono.setActionListener(new ActionListener() {
+        /**
+         * Method called when the Krono count changes.
+         * 
+         * @param newKrono the new Krono count.
+         */
             @Override
             public void onKronoChanged(int newKrono) {
                 kronoText = newKrono + "Kr";
@@ -56,13 +65,21 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         clickImage = new Image(new TextureRegionDrawable(new TextureRegion(buttonTexture)));
 
         clickImage.addListener(new ClickListener() {
+            /**
+             * Called when the user clicks on the button.
+             * 
+             * @param event the event that triggered this call
+             * @param x the x-coordinate of the click
+             * @param y the y-coordinate of the click
+             */
+            
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 krono.addKrono(1);
             }
         });
 
-        float size = Math.min(viewport.getWorldWidth() * 0.25f, viewport.getWorldHeight() * 0.25f);
+        float initialSize = Math.min(viewport.getWorldWidth(), viewport.getWorldHeight()) * 0.25f;
         
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
@@ -70,9 +87,12 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         Table table = new Table();
         table.setFillParent(true);
         table.row().padTop(30);
-        table.add(clickImage).size(size, size).center();
+        table.add(clickImage).size(initialSize, initialSize).center();
 
         stage.addActor(table);
+        clickImageCell = table.add(clickImage).size(initialSize, initialSize).expand().center();
+
+        
     }
 
     @Override
@@ -130,6 +150,12 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     public void resize (int width, int height) {
         viewport.update(width, height, true);
         stage.getViewport().update(width, height, true);
+        float responsiveSize = Math.min(width, height) * 0.25f;
+        if (clickImageCell != null) {
+            clickImageCell.size(responsiveSize, responsiveSize);
+            
+        }
+
     }
 
     @Override
