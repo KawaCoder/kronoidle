@@ -40,15 +40,22 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
         spriteBatch = new SpriteBatch();
         viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
+        // BACKGROUND
         backgroundPrehistoire = new Texture("backprehistoire.png");
         System.out.println("Image width: " + backgroundPrehistoire.getWidth());
         System.out.println("Image height: " + backgroundPrehistoire.getHeight());
 
+
+        // FONT
         font = new BitmapFont(Gdx.files.internal("kronofont.fnt"));
 
+
+        // ITEMS
         items = ItemLoader.loadItems();
         player = new Player();
 
+
+        // KR COUNTER
         krono.setActionListener(new ActionListener() {
         /**
          * Method called when the Krono count changes.
@@ -61,6 +68,8 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
             }
         });
 
+
+        // BUTTON
         Texture buttonTexture = new Texture("buttonKrono1.png");
         clickImage = new Image(new TextureRegionDrawable(new TextureRegion(buttonTexture)));
 
@@ -113,6 +122,8 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     }
 
     private void draw() {
+
+        // BACKGROUND
         ScreenUtils.clear(Color.BLACK);
         viewport.apply();
         spriteBatch.setProjectionMatrix(viewport.getCamera().combined);
@@ -149,8 +160,8 @@ public class KronoIdle extends com.badlogic.gdx.ApplicationAdapter {
     @Override
     public void resize (int width, int height) {
         viewport.update(width, height, true);
-        stage.getViewport().update(width, height, true);
-        float responsiveSize = Math.min(width, height) * 0.25f;
+        stage.getViewport().update(width, height, true); // BACKGROUND resize
+        float responsiveSize = Math.min(width, height) * 0.25f; // BUTTON resize
         if (clickImageCell != null) {
             clickImageCell.size(responsiveSize, responsiveSize);
             
